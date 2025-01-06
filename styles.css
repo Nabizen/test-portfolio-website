@@ -27,3 +27,10 @@ body {
     color: rgb(19, 55, 85);
     text-decoration: none 
 }
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
