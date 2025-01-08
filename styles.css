@@ -3,15 +3,18 @@ body {
 }
 
 .header {
-    margin: 0;
-    color: rgb(19, 55, 85);
-    background-color: aquamarine;
-
+    color: #EEEEEE;
+    background-color: #00ADB5;
     padding: 10px;
+    border-bottom: 5px solid #393E46;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.header h1 {
+    margin: 0;
 }
 
 .header .header-options {
@@ -19,60 +22,56 @@ body {
     gap: 16px;
 }
 
-.header h1 {
-    margin: 0;
-}
-
 .header a {
-    color: rgb(19, 55, 85);
+    color: #EEEEEE;
     text-decoration: none 
 }
 
-.container-landing-page {
-    background-color: #1F2937;
-
+.landing-page-container{
+    background-color: #222831;
     padding-left: 200px;
     padding-right: 200px;
-
-    display: flex;
     padding-top: 100px;
     padding-bottom: 100px;
+
+    display: flex;
     gap: 50px;
 }
 
-.sign-up-text {
+.landing-page-text {
     display: flex;
     flex-direction: column;
+    gap: 16px;
 }
 
-.sign-up-text h1 {
+.landing-page-text h1 {
     color: #F9FAF8;
     font-size: 48px;
     font-weight: 900;
     margin: 0px;
 }
 
-.sign-up-text p {
+.landing-page-text p {
     color: #E5E7EB;
     font-size: 18px;
     margin: 0px;
 }
 
-.sign-up-text button {
-    color: #E5E7EB;
-    background-color: #3882F6;
-    font-size: 18px;
-    font-weight: 500;
-    height: 35px;
-    width: 150px;
-    margin-top: 15px;
-
-    border-radius: 12px;
-    border: none;
-    cursor: pointer;
-}
-
-.container-landing-page img {
+.landing-page-container img {
     height: 300px;
     width: 900px;
+}
+
+
+
+
+
+.footer {
+    background-color: #393E46;
+    color: #EEEEEE;
+    height: 50px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
