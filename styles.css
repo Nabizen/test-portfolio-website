@@ -62,9 +62,21 @@ body {
     width: 900px;
 }
 
+.card-container {
+    height: 500px;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
 
+.card {
+    border: 5px solid skyblue;
 
+    height: 100px;
+    width: 100px;
+}
 
 .footer {
     background-color: #393E46;
