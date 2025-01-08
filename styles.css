@@ -72,11 +72,41 @@ body {
 }
 
 .card {
+    color: #EEEEEE;
+    background-color: #222831;
     border: 5px solid skyblue;
+    height: 400px;
+    width: 150px;
 
-    height: 100px;
-    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
+
+.card:nth-child(1) {
+    background-image: url('/Assets/Neil_Portfolio.jpg');
+    background-size: cover;
+    background-position: 70%;
+}
+
+.card:nth-child(2) {
+    background-image: url('/Assets/Zedril_Portfolio.jpg');
+    background-size: cover;
+    background-position: 40%;
+}
+
+.card:nth-child(3) {
+    background-image: url('/Assets/Warren_Portfolio.jpg');
+    background-size: cover;
+    background-position: 40%;
+}
+
+.card:nth-child(4) {
+    background-image: url('/Assets/Kyle_Portfolio.png');
+    background-size: cover;
+    background-position: 60%;
+}
+
 
 .footer {
     background-color: #393E46;
