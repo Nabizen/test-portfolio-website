@@ -3,17 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>Group Portfolio Website</title>
+    <style>
+        /* Import a clean, modern font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+        /* Color Palette & Variables */
+        :root {
+            --bg-dark: #0f172a;        /* Deep slate */
+            --bg-surface: #1e293b;     /* Lighter slate for cards */
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-primary: #8b5cf6; /* Vibrant violet */
+            --accent-glow: rgba(139, 92, 246, 0.4);
+        }
+
+        /* Base Resets & Typography */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Fixed, Glassmorphism Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 5%;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 1000;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+        }
+
+        .header h1 span {
+            color: var(--accent-primary);
+        }
+
+        .header-options {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .header-options a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .header-options a:hover {
+            color: var(--accent-primary);
+        }
+
+        /* Landing Page - Two Column Flexbox */
+        .landing-page-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+            padding: 6rem 5% 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 3rem;
+        }
+
+        .landing-page-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .landing-page-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            /* Gradient text effect */
+            background: linear-gradient(135deg, #f8fafc 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .landing-page-text p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .landing-page-container img {
+            flex: 1;
+            max-width: 450px;
+            width: 100%;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            object-fit: cover;
+            /* Subtle float animation */
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Card Container - CSS Grid */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: var(--bg-surface);
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle glowing dot on cards */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 60px;
+            height: 60px;
+            background: var(--accent-primary);
+            filter: blur(40px);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(139, 92, 246, 0.5);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent-glow);
+            background-color: #243147;
+        }
+
+        .card:hover::before {
+            opacity: 0.5;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            .header-options {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .landing-page-container {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 8rem; /* Extra padding for stacked header */
+                gap: 2rem;
+            }
+
+            .landing-page-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .landing-page-text {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body> 
     <div class="header">
-        <h1>Group Portfolio</h1>
+        <h1>Group <span>Portfolio</span></h1>
 
         <div class="header-options">
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">Documentation</a>
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">Home</a>
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">About</a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">Documentation</a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">Home</a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">About</a>
         </div>
     </div>
 
@@ -43,7 +260,7 @@
     </div>
 
     <div class="footer">
-        2024
+        &copy; 2024 Group Portfolio
     </div>
 </body>
 </html>
